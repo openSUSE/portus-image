@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<image schemaversion="6.5" name="portus-image">
+  <description type="system">
+    <author>SUSE Containers Team</author>
+    <contact>containers@suse.com</contact>
+    <specification>Portus image based on Leap 15</specification>
+  </description>
+  <preferences>
+    <type image="docker" derived_from="obs://openSUSE:Leap:15.0:Images/images/opensuse/leap#15.0">
+        <containerconfig name="opensuse/portus" tag="2.5">
+            <expose>
+                <port number="3000"/>
+            </expose>
+            <entrypoint execute="/init"/>
+            <subcommand clear="true"/>
+        </containerconfig>
+    </type>
+    <version>1.0</version>
+    <packagemanager>zypper</packagemanager>
+    <rpm-excludedocs>true</rpm-excludedocs>
+  </preferences>
+  <repository type="rpm-md" alias="devel_ruby" priority="1">
+    <source path="obs://devel:languages:ruby/openSUSE_Leap_15.0"/>
+  </repository>
+  <repository type="rpm-md" alias="portus" priority="1">
+    <source path="obs://Virtualization:containers:Portus:2.5/openSUSE_Leap_15.0"/>
+  </repository>
+  <repository type="rpm-md" alias="openSUSE Leap 15 Update" priority="2">
+    <source path="obs://openSUSE:Leap:15.0:Update/standard"/>
+  </repository>
+  <repository type="rpm-md" alias="openSUSE Leap 15" priority="2">
+    <source path="obs://openSUSE:Leap:15.0/standard"/>
+  </repository>
+  <packages type="image">
+    <package name="ruby-common"/>
+    <package name="portus"/>
+  </packages>
+</image>
