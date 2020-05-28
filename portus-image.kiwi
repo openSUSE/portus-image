@@ -3,11 +3,11 @@
   <description type="system">
     <author>SUSE Containers Team</author>
     <contact>containers@suse.com</contact>
-    <specification>Portus image based on Leap 15</specification>
+    <specification>Portus image based on Leap 15.1</specification>
   </description>
   <preferences>
-    <type image="docker" derived_from="obs://openSUSE:Leap:15.0:Images/images/opensuse/leap#15.0">
-        <containerconfig name="opensuse/portus" tag="2.5">
+    <type image="docker" derived_from="obs://openSUSE:Leap:15.1:Images/images/opensuse/leap#15.1">
+        <containerconfig name="opensuse/portus" tag="2.5-cloudfoundry">
             <expose>
                 <port number="3000"/>
             </expose>
@@ -20,16 +20,16 @@
     <rpm-excludedocs>true</rpm-excludedocs>
   </preferences>
   <repository type="rpm-md" alias="devel_ruby" priority="1">
-    <source path="obs://devel:languages:ruby/openSUSE_Leap_15.0"/>
+    <source path="obs://devel:languages:ruby/openSUSE_Leap_15.1"/>
   </repository>
   <repository type="rpm-md" alias="portus" priority="1">
-    <source path="obs://Virtualization:containers:Portus:2.5/openSUSE_Leap_15.0"/>
+    <source path="obs://Virtualization:containers:Portus:cloudfoundry/openSUSE_Leap_15.1"/>
   </repository>
   <repository type="rpm-md" alias="openSUSE Leap 15 Update" priority="2">
-    <source path="obs://openSUSE:Leap:15.0:Update/standard"/>
+    <source path="obs://openSUSE:Leap:15.1:Update/standard"/>
   </repository>
   <repository type="rpm-md" alias="openSUSE Leap 15" priority="2">
-    <source path="obs://openSUSE:Leap:15.0/standard"/>
+    <source path="obs://openSUSE:Leap:15.1/standard"/>
   </repository>
   <packages type="image">
     <package name="ruby-common"/>
